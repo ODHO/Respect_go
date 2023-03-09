@@ -1,0 +1,3969 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+<link rel="icon" href="./img/ico.png">
+  <title>Admin_Panel</title>
+  <link rel="stylesheet" href="./vendor/bootstrap/scss/bootstrap.scss">
+  <link rel="stylesheet" href="./css/fontawesome/css/all.min.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+/>
+</head>
+
+<body id="page-top">
+
+  <div id="wrapper" class="tabContainer">
+    
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion buttonContainer" id="accordionSidebar">
+
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <div class="sidebar-brand-icon">
+         <i class="fa fa-bars" id="sidebarToggle"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">REPSETGO PORTAL</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider mt-3">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link tab" href="#" onclick="showPanel(0,'')">
+          <i style="color: #f04035;" class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link collapsed tab" href="#" onclick="showPanel(1,'')" data-toggle="collapse" data-target="#collapseone" aria-expanded="true" aria-controls="collapseone">
+          <i style="color: #f04035;" class="fas fa-signal"></i>
+          <span>Orders</span></a>
+          <div id="collapseone" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item tab" href="#" onclick="showPanel(1,'')">Main Menu</a>
+              <a class="collapse-item tab" href="#" onclick="showPanel(2,'')">Active</a>
+              <a class="collapse-item tab" href="#" onclick="showPanel(3,'')">New</a>
+              <a class="collapse-item tab" href="#" onclick="showPanel(4,'')">Completed</a>
+              <a class="collapse-item tab" href="#" onclick="showPanel(5,'')">Cancelled</a>
+            </div>
+          </div>
+      </li>
+      <!-- Divider -->
+
+      <!-- Heading -->
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed tab" href="#"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i style="color: #f04035;" class="fas fa-fw fa-cog"></i>
+          <span>Category</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item tab" href="#" onclick="showPanel(6,'')">Add Category</a>
+            <a class="collapse-item tab" href="#" onclick="showPanel(7,'')">Manage Category</a>
+            <a class="collapse-item tab" href="#" onclick="showPanel(8,'')">Category Details</a>
+
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed tab" href="#"  data-toggle="collapse" data-target="#collapseT" aria-expanded="true" aria-controls="collapseTwo">
+          <i style="color: #f04035;" class="fas fa-fw fa-cog"></i>
+          <span>Product</span>
+        </a>
+        <div id="collapseT" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item tab" href="#" onclick="showPanel(9,'')">Add Product</a>
+            <a class="collapse-item tab" href="#" onclick="showPanel(10,'')">Manage Product</a>
+            <a class="collapse-item tab" href="#" onclick="showPanel(12,'')">Product Details</a>
+
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed tablink" href="#"  data-toggle="collapse" data-target="#collapsef" aria-expanded="true" aria-controls="collapseTwo">
+          <i style="color: #f04035;" class="fas fa-fw fa-cog"></i>
+          <span>Sale</span>
+        </a>
+        <div id="collapsef" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item tab" href="#" onclick="showPanel(13,'')">Add Sale</a>
+            <a class="collapse-item tab" href="#" onclick="showPanel(14,'')">Manage Sale</a>
+            <a class="collapse-item tab" href="#" onclick="showPanel(15,'')">Sale Details</a>
+
+          </div>
+        </div>
+      </li>
+      
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed tablink" href="#" onclick="openPage('query', this, '')" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i style="color: #f04035;" class="fas fa-fw fa-wrench"></i>
+          <span>FeedBack</span>
+        </a>
+        <!-- <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Utilities:</h6>
+            <a class="collapse-item" href="#">Colors</a>
+            <a class="collapse-item" href="#">Borders</a>
+            <a class="collapse-item" href="#">Animations</a>
+            <a class="collapse-item" href="#">Other</a>
+          </div>
+        </div> -->
+      </li>
+     
+      <!-- Divider -->
+  
+      <!-- Heading -->
+     
+      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- <li class="nav-item">
+        <a class="nav-link collapsed tablink" href="#" onclick="openPage('status', this, '')" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Status</span>
+        </a> -->
+        <!-- <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item tab" href="#">HOME</a>
+            <a class="collapse-item tab" href="#" >ABOUT</a>
+            <a class="collapse-item tab" href="#">SERVICES</a>
+            <a class="collapse-item tab" href="#">PRODUCTS</a>
+            <a class="collapse-item tab" href="#" onclick="showPanel(12,'')">PROJECTS</a>
+            <a class="collapse-item tab" href="#">BUY ONLINE</a>
+            <div class="collapse-divider"></div>
+          </div>
+        </div> -->
+      </li>
+     
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link tablink" href="#" class="" onclick="openPage('test', this, '')">
+          <i style="color: #f04035;" class="fas fa-fw fa-chart-area"></i>
+          <span>Report</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link tablink" href="#" onclick="openPage('setting', this, '')">
+          <i style="color: #f04035;" class="fas fa-fw fa-table"></i>
+          <span>Settings</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed tablink" href="#" onclick="openPage('help', this, '')" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i style="color: #f04035;" class="fas fa-hands-helping"></i>
+          <span>Help / Support</span>
+        </a>
+        <!-- <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Utilities:</h6>
+            <a class="collapse-item" href="#">Colors</a>
+            <a class="collapse-item" href="#">Borders</a>
+            <a class="collapse-item" href="#">Animations</a>
+            <a class="collapse-item" href="#">Other</a>
+          </div>
+        </div> -->
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+
+      <!-- <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div> -->
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column dft">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+         
+          <img class="logo" src="./img/logo1.png">
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <form
+            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                    aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                    <div class="status-indicator"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                    <div class="status-indicator bg-warning"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">WELCOME ADMIN</span>
+                <img class="img-profile rounded-circle" src="./img/download.jfif">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container">
+          <div class="tabPanel">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">DASHBOARD</h1>
+        
+            </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2  text-center" id="colzp">
+          <i class="fas fa-plus-circle" id="fontz"></i>
+          <h5 class="fontaa">New Orders</h5><span style="font-weight: bold; color: #f04035;" > 3</span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2  text-center" id="colzp">
+          <i class="fas fa-dot-circle" id="fontz"></i>
+          <h5 class="fontaa">Active Orders</h5><span style="font-weight: bold; color: #f04035;" > 3</span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2  text-center" id="colzp">
+          <i class="fas fa-check-circle" id="fontz"></i>
+          <h5 class="fontaa">Completed Orders</h5><span style="font-weight: bold; color: #f04035;" > 3</span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2  text-center" id="colzp">
+          <i class="fas fa-times-circle" id="fontz"></i>
+          <h5 class="fontaa">Cancelled Orders</h5><span style="font-weight: bold; color: #f04035;" > 3</span>
+        </div>
+      </div>  
+      <br>
+      <br>    
+            <div class="row">
+
+              <!-- messages -->
+              <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4 w-500">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">New Messages</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Dropdown Header:</div>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body msg-h">
+                        <div class="chart-pie pb-2">
+                        <div class="message-body">
+                          <div class="ic-m1">
+                            <i class="fas fa-envelope"></i>
+                            <h3 class="sender-name">Tanzeel</h3>
+                          </div>
+                          <p class="message-desc">
+                            hello there .. team TiiE.. lorem Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo fugiat deleniti non perferendis illo omnis ex pariatur in aperiam necessitatibus quae debitis, maxime autem ea accusamus maiores aspernatur temporibus eaque?
+                          </p>
+                          
+                          <br>
+
+                          <div class="ic-m1">
+                            <i class="fas fa-envelope"></i>
+                            <h3 class="sender-name">Tanzeel</h3>
+                          </div>
+                          <p class="message-desc">
+                            hello there .. team TiiE.. lorem Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo fugiat deleniti non perferendis illo omnis ex pariatur in aperiam necessitatibus quae debitis, maxime autem ea accusamus maiores aspernatur temporibus eaque?
+                          </p>
+
+                        </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+              <!-- statistics Chart -->
+              <div class="col-xl-8 col-lg-7">
+                  <div class="card shadow mb-4 w-500">
+                      <!-- Card Header - Dropdown -->
+                      <div
+                          class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                          <h6 class="m-0 font-weight-bold text-primary">STATISTICS</h6>
+                          <div class="dropdown no-arrow">
+                              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                  aria-labelledby="dropdownMenuLink">
+                                  <div class="dropdown-header">Dropdown Header:</div>
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                          <div class="chart-area">
+                              <canvas id="myAreaChart"></canvas>
+                          </div>
+                      </div>
+                  </div>
+                  <!--users-->
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                  <div class="card shadow mb-4 w-300">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Active Users</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Dropdown Header:</div>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body act-sh">
+                    <h1 class="users">2560</h1>
+                    <a href="#" style="text-decoration: none;">
+                      <p class="sh-more">show more</p>
+                    </a>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6">
+                    <div class="card shadow mb-4 w-300">
+                      <!-- Card Header - Dropdown -->
+                      <div
+                          class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                          <h6 class="m-0 font-weight-bold text-primary">Active Users</h6>
+                          <div class="dropdown no-arrow">
+                              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                  aria-labelledby="dropdownMenuLink">
+                                  <div class="dropdown-header">Dropdown Header:</div>
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body act-sh">
+                      <h1 class="users">2560</h1>
+                      <a href="#" style="text-decoration: none;">
+                        <p class="sh-more">show more</p>
+                      </a>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+              </div>
+
+              
+          </div>
+          <!--news-->
+      
+         
+          </div>
+          <div class="tabPanel">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">MAIN MENU</h1>
+             
+            </div>
+            <!--menu/navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link active tab" aria-current="page" href="#" onclick="showPanel(2,'')">Active</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(3,'')">News</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(4,'')">Completed</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(5,'')">Cancelled</a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+           <div class="row">
+             <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Main Menu</h1>
+              </div>
+              <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group" style="margin-left: -15px;margin-bottom: 15px;">
+                  <input type="text" class="form-control  border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                      <i class="fas fa-search fa-sm"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <div class="card shadow mb-4">
+              <div class="tb-responsive ">
+                <table class="table" style="width: inherit !important;">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Buyer name</th>
+                      <th scope="col">Product name</th>
+                      <th scope="col">Contact</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td class="cat" style="color: black; font-weight: bold;">Aziz Padora <br> <br>
+                      </td>
+                      <td class="cat" style="color: black; font-weight: bold;">Vibrator <br> <br> </td>
+                        <td class="cat" style="color: black; font-weight: bold;">223190 <br> <br> </td>
+                 
+                      <td class="ttda">solar panel solar panel solar </td>
+                      <td>$100</td>
+                      <td>
+                        <button id="newaz" class="btn btn-primary" onclick="showPanel(6,'')" type="button">EDIT</button>        
+                      </td>
+  
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+              </div>
+             </div>
+           </div>
+          </div>
+
+          <!--common-->
+
+          <div class="tabPanel">
+            <!--main menu-->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">MAIN MENU</h1>
+            
+            </div>
+            <!--menu/navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link active tab" aria-current="page" href="#" onclick="showPanel(2,'')">Active</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(3,'')">New</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(4,'')">Completed</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(5,'')">Cancelled</a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                 <h1 class="h3 mb-0 text-gray-800">Active Orders</h1>
+               </div>
+               <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                 <div class="input-group" style="margin-left: -15px;margin-bottom: 15px;">
+                   <input type="text" class="form-control  border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                   <div class="input-group-append">
+                     <button class="btn btn-primary" type="button">
+                       <i class="fas fa-search fa-sm"></i>
+                     </button>
+                   </div>
+                 </div>
+               </form>
+               <div class="card shadow mb-4">
+               <div class="tb-responsive ">
+                 <table class="table" style="width: inherit !important;">
+                   <thead>
+                     <tr>
+                       <th scope="col">#</th>
+                       <th scope="col">Buyer name</th>
+                       <th scope="col">Product name</th>
+                       <th scope="col">Contact</th>
+                       <th scope="col">Address</th>
+                       <th scope="col">Price</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr>
+                       <td>1</td>
+                       <td class="cat" style="color: black; font-weight: bold;">Aziz Padora <br> <br>
+                       </td>
+                       <td class="cat" style="color: black; font-weight: bold;">Vibrator <br> <br> </td>
+                         <td class="cat" style="color: black; font-weight: bold;">223190 <br> <br> </td>
+                  
+                       <td class="ttda">solar panel solar panel solar </td>
+                       <td>$100</td>
+                       <td>
+                         <button id="newaz" class="btn btn-primary" onclick="showPanel(6,'')" type="button">EDIT</button>        
+                       </td>
+   
+                     </tr>
+                     
+                   </tbody>
+                 </table>
+               </div>
+               </div>
+              </div>
+            </div>
+           
+            </div>
+         
+          <!--alert-->
+          <div class="tabPanel">
+             <!--main menu-->
+             <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">MAIN MENU</h1>
+            
+            </div>
+            <!--menu/navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link tab" aria-current="page" href="#" onclick="showPanel(2,'')">Active</a>
+                    <a class="nav-link active tab" href="#" onclick="showPanel(3,'')">New</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(4,'')">Completed</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(5,'')">Cancelled</a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                 <h1 class="h3 mb-0 text-gray-800">New Orders</h1>
+               </div>
+               <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                 <div class="input-group" style="margin-left: -15px;margin-bottom: 15px;">
+                   <input type="text" class="form-control  border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                   <div class="input-group-append">
+                     <button class="btn btn-primary" type="button">
+                       <i class="fas fa-search fa-sm"></i>
+                     </button>
+                   </div>
+                 </div>
+               </form>
+               <div class="card shadow mb-4">
+               <div class="tb-responsive ">
+                 <table class="table" style="width: inherit !important;">
+                   <thead>
+                     <tr>
+                       <th scope="col">#</th>
+                       <th scope="col">Buyer name</th>
+                       <th scope="col">Product name</th>
+                       <th scope="col">Contact</th>
+                       <th scope="col">Status</th>
+                       <th scope="col">Price</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr>
+                       <td>1</td>
+                       <td class="cat" style="color: black; font-weight: bold;">Aziz Padora <br> <br>
+                       </td>
+                       <td class="cat" style="color: black; font-weight: bold;">Vibrator <br> <br> </td>
+                         <td class="cat" style="color: black; font-weight: bold;">223190 <br> <br> </td>
+                  
+                       <td class="ttda">solar panel solar panel solar </td>
+                       <td>$100</td>
+                       <td>
+                         <button id="newaz" class="btn btn-primary" onclick="showPanel(6,'')" type="button">EDIT</button>        
+                       </td>
+   
+                     </tr>
+                     
+                   </tbody>
+                 </table>
+               </div>
+               </div>
+              </div>
+            </div>
+   
+          </div>
+          <!--debugging-->
+          <div class="tabPanel">
+             <!--main menu-->
+             <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">MAIN MENU</h1>
+            
+            </div>
+            <!--menu/navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link tab" aria-current="page" href="#" onclick="showPanel(2,'')">Active</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(3,'')">New</a>
+                    <a class="nav-link active tab" href="#" onclick="showPanel(4,'')">Completed</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(5,'')">Cancelled</a>
+                        </div>
+                </div>
+              </div>
+            </nav>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                 <h1 class="h3 mb-0 text-gray-800">Completed Orders</h1>
+               </div>
+               <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                 <div class="input-group" style="margin-left: -15px;margin-bottom: 15px;">
+                   <input type="text" class="form-control  border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                   <div class="input-group-append">
+                     <button class="btn btn-primary" type="button">
+                       <i class="fas fa-search fa-sm"></i>
+                     </button>
+                   </div>
+                 </div>
+               </form>
+               <div class="card shadow mb-4">
+               <div class="tb-responsive ">
+                 <table class="table" style="width: inherit !important;">
+                   <thead>
+                     <tr>
+                       <th scope="col">#</th>
+                       <th scope="col">Buyer name</th>
+                       <th scope="col">Product name</th>
+                       <th scope="col">Contact</th>
+                       <th scope="col">Status</th>
+                       <th scope="col">Price</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr>
+                       <td>1</td>
+                       <td class="cat" style="color: black; font-weight: bold;">Aziz Padora <br> <br>
+                       </td>
+                       <td class="cat" style="color: black; font-weight: bold;">Vibrator <br> <br> </td>
+                         <td class="cat" style="color: black; font-weight: bold;">223190 <br> <br> </td>
+                  
+                       <td class="ttda">solar panel solar panel solar </td>
+                       <td>$100</td>
+                       <td>
+                         <button id="newaz" class="btn btn-primary" onclick="showPanel(6,'')" type="button">EDIT</button>        
+                       </td>
+   
+                     </tr>
+                     
+                   </tbody>
+                 </table>
+               </div>
+               </div>
+              </div>
+            </div>
+   
+          </div>
+
+          <!--system updates-->
+
+          <div class="tabPanel">
+            <!--main menu-->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">MAIN MENU</h1>
+            
+            </div>
+            <!--menu/navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link tab" aria-current="page" href="#" onclick="showPanel(2,'')">Active</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(3,'')">New</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(4,'')">Completed</a>
+                    <a class="nav-link active tab" href="#" onclick="showPanel(5,'')">Cancelled</a>
+                        </div>
+                </div>
+              </div>
+            </nav>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                 <h1 class="h3 mb-0 text-gray-800">Cancelled Orders</h1>
+               </div>
+               <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                 <div class="input-group" style="margin-left: -15px;margin-bottom: 15px;">
+                   <input type="text" class="form-control  border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                   <div class="input-group-append">
+                     <button class="btn btn-primary" type="button">
+                       <i class="fas fa-search fa-sm"></i>
+                     </button>
+                   </div>
+                 </div>
+               </form>
+               <div class="card shadow mb-4">
+               <div class="tb-responsive ">
+                 <table class="table" style="width: inherit !important;">
+                   <thead>
+                     <tr>
+                       <th scope="col">#</th>
+                       <th scope="col">Buyer name</th>
+                       <th scope="col">Product name</th>
+                       <th scope="col">Contact</th>
+                       <th scope="col">Status</th>
+                       <th scope="col">Price</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr>
+                       <td>1</td>
+                       <td class="cat" style="color: black; font-weight: bold;">Aziz Padora <br> <br>
+                       </td>
+                       <td class="cat" style="color: black; font-weight: bold;">Vibrator <br> <br> </td>
+                         <td class="cat" style="color: black; font-weight: bold;">223190 <br> <br> </td>
+                  
+                       <td class="ttda">solar panel solar panel solar </td>
+                       <td>$100</td>
+                       <td>
+                         <button id="newaz" class="btn btn-primary" onclick="showPanel(6,'')" type="button">EDIT</button>        
+                       </td>
+   
+                     </tr>
+                     
+                   </tbody>
+                 </table>
+               </div>
+               </div>
+              </div>
+            </div>
+   
+        </div>
+        <!-- CATEGORIES -->
+        <div class="tabPanel">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+             
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link tab active" aria-current="page" href="#" onclick="showPanel(6,'')">Add Category</a>
+                  <a class="nav-link tab " href="#" onclick="showPanel(7,'')">Manage Category</a>
+                  <a class="nav-link tab " href="#" onclick="showPanel(8,'')">Category Details</a>
+                 </div>
+              </div>
+            </div>
+          </nav>
+
+          <div class="card shadow mb-4" style="height: 310px;">
+            
+            <div class="card-header py-3 align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">ADD CATEGORY</h6>
+            </div>
+          
+            <div class="card-body">
+              <div class="chart-pie pt-4 pb-2">
+                <select id="inputState" class="form-control" aria-placeholder="Select Category">
+                  <option selected value="Select Category">Select Product</option>
+                  <option value="Afganistan">TILES</option>
+                  <option value="Albania">CEMENT</option>
+                  <option value="Albania">IRON ROD</option>
+
+                  </select>
+                  <br>
+                <input type="text" class="form-control" placeholder="Add category"> <br>
+                <button type="button" class="btn btn-primary" style="float: right;">UPDATE DETAILS</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="tabPanel">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+             
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link tab " aria-current="page" href="#" onclick="showPanel(6,'')">Add Category</a>
+                  <a class="nav-link tab active" href="#" onclick="showPanel(7,'')">Manage Category</a>
+                  <a class="nav-link tab " href="#" onclick="showPanel(8,'')">Category Details</a>
+                 </div>
+              </div>
+            </div>
+          </nav>
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Manage Category</h1>
+          </div>
+         
+          <div class="card shadow mb-4">
+          <div class="tb-responsive ">
+            <table class="table" style="width: inherit !important;">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col" class="cat">Catogary name</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="cat" style="color: black; font-weight: bold;">solar panel <br> <br>
+                    <button type="button" class="btn btn-primary" >EDIT</button>
+                  </td>
+                  <td>solar panel solar panel solar panel solar panel
+                    solar panel solar panel solar panel solar panel
+                    solar panel solar panel solar panel solar panel
+                    solar panelsolar panelsolar panelsolar pane
+                    <br>
+                    <button type="button" class="btn btn-primary mr-3 mb-2" style="float: right;">DELETE</button>
+                    <button type="button" class="btn btn-primary mr-3 mb-2" style="float: right;">UPDATE</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="cat" style="color: black; font-weight: bold;">solar panel<br> <br>
+                    <button type="button" class="btn btn-primary" >EDIT</button>
+                  </td>
+                  <td>solar panel solar panel solar panel solar panel
+                    solar panel solar panel solar panel solar panel
+                    solar panel solar panel solar panel solar panel
+                    solar panelsolar panelsolar panelsolar pane <br>
+                    <button type="button" class="btn btn-primary mr-3 mb-2" style="float: right;">DELETE</button>
+              <button type="button" class="btn btn-primary mr-3 mb-2" style="float: right;">UPDATE</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+
+        <div class="tabPanel">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+             
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link tab " aria-current="page" href="#" onclick="showPanel(6,'')">Add Category</a>
+                  <a class="nav-link tab" href="#" onclick="showPanel(7,'')">Manage Category</a>
+                  <a class="nav-link tab active" href="#" onclick="showPanel(8,'')">Category Details</a>
+        
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div class="card shadow mb-4">
+            
+            <div class="card-header py-3 align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">CATEGORIES DETAILS</h6>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+               
+               <div class="card shadow mb-4">
+               <div class="tb-responsive ">
+                 <table class="table" style="width: inherit !important;">
+                   <thead>
+                     <tr>
+                       <th scope="col">#</th>
+                       <th scope="col" class="cat">Product name</th>
+                       <th scope="col">Description</th>
+                       <th scope="col">Quantity</th>
+                       <th scope="col">Amount</th>
+         
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr>
+                       <td>1</td>
+                       <td class="cat" style="color: black; font-weight: bold;">solar panel <br> <br>
+                       </td>
+                       <td>solar panel solar panel solar panel solar panel
+                         solar panel solar panel solar panel solar panel
+                         solar panel solar panel solar panel solar panel
+                         solar panelsolar panelsolar panelsolar pane
+                         <br>
+                       </td>
+                       <td class="cat" style="color: black; font-weight: bold;">1 <br> <br> </td>
+                         <td class="cat" style="color: black; font-weight: bold;">$20 <br> <br> </td>
+                       
+                     </tr>
+                     
+                   </tbody>
+                 </table>
+               </div>
+               </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        
+        <!-- CATEGORIES -->
+
+ <!-- PRODUCTS -->
+ <div class="tabPanel">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+       
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link tab active" aria-current="page" href="#" onclick="showPanel(9,'')">Add Product</a>
+            <a class="nav-link tab" href="#" onclick="showPanel(10,'')">Manage Product</a>
+            <a class="nav-link tab" href="#" onclick="showPanel(11,'')">Product Details</a>
+ 
+          </div>
+        </div>
+      </div>
+    </nav>
+ <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-md" style="background-color: #2D8CE4;" data-toggle="modal" data-target="#myModal">ADD PRODUCT</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="addn">ADD NEW PRODUCT</h3>
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+<div class="modal-body">
+<input type="number" disabled="true" class="form-control" placeholder="Product ID"> <br>
+<input type="text" class="form-control" placeholder="Product Name"> <br>
+<button type="button" class="btn btn-primary" style="float: left;background-color: #2D8CE4;">UPLOAD IMAGE</button>
+
+</div>
+<div class="modal-footer">
+<button type="button" style="background-color: #2D8CE4; color: white;" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+
+</div>
+</div>
+
+  </div>
+
+  <div class="card shadow mb-4">
+    
+    <div class="card-header py-3 align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">ADD PRODUCT</h6>
+    </div>
+  
+    <div class="card-body">
+      <div class="chart-pie pt-4 pb-2">
+        <select id="inputState" class="form-control" aria-placeholder="Select Category">
+          <option selected value="Select Category">Select Products</option>
+          <option value="Afganistan">TILES</option>
+          <option value="Albania">CEMENT</option>
+          <option value="Albania">IRON ROD</option>
+          </select> <br>
+        <select id="inputState" class="form-control" aria-placeholder="Select Category">
+          <option selected value="Select Category">Select Category</option>
+          <option value="Afganistan">MMA</option>
+          <option value="Albania">Multi</option>
+          </select> <br>
+<input type="text" class="form-control" placeholder="Product Name"> <br>
+
+        <input type="number" class="form-control" placeholder="Price"> <br>
+        <input type="number" class="form-control" placeholder="Quantity"> <br>
+
+        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Product Description"></textarea> <br>
+        <div class="container">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+<label class="form-check-label" for="flexCheckDefault">
+Featured Product
+</label>
+</div>
+<br>
+        <button type="button" class="btn btn-primary" style="float: left;">UPLOAD IMAGE</button>
+        <button type="button" class="btn btn-primary" style="float: right;">ADD CATEGORY</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="tabPanel">
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link tab" aria-current="page" href="#" onclick="showPanel(9,'')">Add Product</a>
+          <a class="nav-link tab active" href="#" onclick="showPanel(10,'')">Manage Product</a>
+          <a class="nav-link tab " href="#" onclick="showPanel(12,'')">Product Details</a>
+         
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Manage Products</h1>
+  </div>
+  
+  <div class="card shadow mb-4">
+  <div class="tb-responsive ">
+    <table class="table" style="width: inherit !important;">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Category Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>
+            <select id="inputState" class="form-control" aria-placeholder="Select Category">
+              <option selected value="Tig">Tig</option>
+              <option value="Afganistan">MMA</option>
+              <option value="Albania">Multi</option>
+              </select>
+          </td>
+          <td>
+            <select id="inputState" class="form-control" aria-placeholder="Select Category">
+              <option selected value="Tig">Tig</option>
+              <option value="Afganistan">MMA</option>
+              <option value="Albania">Multi</option>
+              </select>
+          </td>
+         
+          <td>
+            <button id="newaz" class="btn btn-primary" onclick="showPanel(11,'')" type="button">EDIT</button>        
+          </td>
+
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+<div class="tabPanel">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Update Products</h1>
+
+  </div>
+
+  <div class="card shadow mb-4">
+    
+    <div class="card-header py-3 align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">EDIT PRODUCT</h6>
+    </div>
+  
+    <div class="card-body">
+      <div class="chart-pie pt-4 pb-2">
+        
+<input type="text" class="form-control" placeholder="Product Name"> <br>
+<input type="text" class="form-control" placeholder="Category"> <br>
+
+        <input type="number" class="form-control" placeholder="Price"> <br>
+        <input type="number" class="form-control" placeholder="Quantity"> <br>
+
+        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Product Description"></textarea> <br>
+
+<br>
+
+<form action="/action_page.php">
+<input type="file" id="myFile" name="filename" placeholder="UPLOAD ">
+<button type="submit" class="btn btn-primary">UPLOAD IMAGE</button>
+</form>
+
+        <button type="button" class="btn btn-primary mx-2" style="float: right;">DELETE</button>
+        <button type="button" class="btn btn-primary" style="float: right;">UPDATE</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="tabPanel">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link tab " aria-current="page" href="#" onclick="showPanel(9,'')">Add Product</a>
+          <a class="nav-link tab" href="#" onclick="showPanel(10,'')">Manage Product</a>
+          <a class="nav-link tab active" href="#" onclick="showPanel(12,'')">Product Details</a>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="card shadow mb-4">
+    
+    <div class="card-header py-3 align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">PRODUCT DETAILS</h6>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+       
+       <div class="card shadow mb-4">
+       <div class="tb-responsive ">
+         <table class="table" style="width: inherit !important;">
+           <thead>
+             <tr>
+               <th scope="col">#</th>
+               <th scope="col" class="cat">Product name</th>
+               <th scope="col">Description</th>
+               <th scope="col">Quantity</th>
+               <th scope="col">Amount</th>
+ 
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>1</td>
+               <td class="cat" style="color: black; font-weight: bold;">solar panel <br> <br>
+               </td>
+               <td>solar panel solar panel solar panel solar panel
+                 solar panel solar panel solar panel solar panel
+                 solar panel solar panel solar panel solar panel
+                 solar panelsolar panelsolar panelsolar pane
+                 <br>
+               </td>
+               <td class="cat" style="color: black; font-weight: bold;">1 <br> <br> </td>
+                 <td class="cat" style="color: black; font-weight: bold;">$20 <br> <br> </td>
+               
+             </tr>
+             
+           </tbody>
+         </table>
+       </div>
+       </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+
+<!-- SALE -->
+<div class="tabPanel">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link tab active" aria-current="page" href="#" onclick="showPanel(13,'')">Add Sale</a>
+          <a class="nav-link tab" href="#" onclick="showPanel(14,'')">Manage Sale</a>
+          <a class="nav-link tab" href="#" onclick="showPanel(15,'')">Sale Details</a>
+
+         </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="card shadow mb-4" style="height: 310px;">
+    
+    <div class="card-header py-3 align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">ADD SALE</h6>
+    </div>
+  
+    <div class="card-body">
+      <div class="chart-pie pt-4 pb-2">
+        <select id="inputState" class="form-control" aria-placeholder="Select Category">
+          <option selected value="Select Category">Select Product</option>
+          <option value="Afganistan">TILES</option>
+          <option value="Albania">CEMENT</option>
+          <option value="Albania">IRON ROD</option>
+
+          </select>
+          <br>
+        <input type="text" class="form-control" placeholder="Add category"> <br>
+        <button type="button" class="btn btn-primary" style="float: right;">UPDATE DETAILS</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="tabPanel">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link tab" aria-current="page" href="#" onclick="showPanel(13,'')">Add Sale</a>
+          <a class="nav-link tab active" href="#" onclick="showPanel(14,'')">Manage Sale</a>
+          <a class="nav-link tab" href="#" onclick="showPanel(15,'')">Sale Details</a>
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+ 
+  <div class="card shadow mb-4">
+  <div class="tb-responsive ">
+    <table class="table" style="width: inherit !important;">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col" class="cat">Product Name</th>
+          <th scope="col">Category Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>
+            <select id="inputState" class="form-control" aria-placeholder="Select Category">
+              <option selected value="Tig">Tig</option>
+              <option value="Afganistan">MMA</option>
+              <option value="Albania">Multi</option>
+              </select>
+          </td>
+          <td>
+            <select id="inputState" class="form-control" aria-placeholder="Select Category">
+              <option selected value="Tig">Tig</option>
+              <option value="Afganistan">MMA</option>
+              <option value="Albania">Multi</option>
+              </select>
+          </td>
+          <td>
+            <button type="button" class="btn btn-primary mr-3 mb-2" onclick="showPanel(16,'')" style="float: right;">EDIT</button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+
+<div class="tabPanel">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link tab" aria-current="page" href="#" onclick="showPanel(13,'')">Add Sale</a>
+          <a class="nav-link tab " href="#" onclick="showPanel(14,'')">Manage Sale</a>
+          <a class="nav-link tab active" href="#" onclick="showPanel(15,'')">Sale Details</a>
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="card shadow mb-4">
+    
+    <div class="card-header py-3 align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Sale DETAILS</h6>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+       
+       <div class="card shadow mb-4">
+       <div class="tb-responsive ">
+         <table class="table" style="width: inherit !important;">
+           <thead>
+             <tr>
+               <th scope="col">#</th>
+               <th scope="col" class="cat">Product name</th>
+               <th scope="col">Description</th>
+               <th scope="col">Quantity</th>
+               <th scope="col">Amount</th>
+ 
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>1</td>
+               <td class="cat" style="color: black; font-weight: bold;">solar panel <br> <br>
+               </td>
+               <td>solar panel solar panel solar panel solar panel
+                 solar panel solar panel solar panel solar panel
+                 solar panel solar panel solar panel solar panel
+                 solar panelsolar panelsolar panelsolar pane
+                 <br>
+               </td>
+               <td class="cat" style="color: black; font-weight: bold;">1 <br> <br> </td>
+                 <td class="cat" style="color: black; font-weight: bold;">$20 <br> <br> </td>
+               
+             </tr>
+             
+           </tbody>
+         </table>
+       </div>
+       </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<div class="tabPanel">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Update Products</h1>
+
+  </div>
+
+  <div class="card shadow mb-4">
+    
+    <div class="card-header py-3 align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">EDIT SALE</h6>
+    </div>
+  
+    <div class="card-body">
+      <div class="chart-pie pt-4 pb-2">
+        
+<input type="text" class="form-control" placeholder="Product Name"> <br>
+<input type="text" class="form-control" placeholder="Category"> <br>
+
+        <input type="number" class="form-control" placeholder="Price"> <br>
+        <input type="number" class="form-control" placeholder="Quantity"> <br>
+
+        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Product Description"></textarea> <br>
+
+<br>
+
+<form action="/action_page.php">
+<input type="file" id="myFile" name="filename" placeholder="UPLOAD ">
+<button type="submit" class="btn btn-primary">UPLOAD IMAGE</button>
+</form>
+
+        <button type="button" class="btn btn-primary mx-2" style="float: right;">DELETE</button>
+        <button type="button" class="btn btn-primary" style="float: right;">UPDATE</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- SALE -->
+          <div class="tabPanel">
+            
+            <div class="row pt-3">
+              <div class="col-xl-12 col-lg-12">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 ml-5 text-gray-800 cr-ft margin-1">FILTERS MAINTENANCE FORM</h1>
+            </div>
+            <div class="card shadow ml-5 w-500 margin-1">
+              <!-- Card Header - Dropdown -->
+              
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="fl">
+                  <div class="fl">
+                    <h6 class="cl-bl" style="margin-top: auto;margin-bottom: auto;">ID</h6>
+                    <div class="dropdown">
+                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                 
+                    <h6 class="cl-bl text-center font-weight-bold fil">Auto Update Flag</h6>
+                      <label class="switch-f fil2">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="card shadow ml-5 w-500 margin-1">
+              <!-- Card Header - Dropdown -->
+              
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="fl">
+                <div class="engine-head2">
+                  <h6 class="cl-bl eng-head text-center">Filter</h6>
+                </div>
+                <div class="engine-head2 ml-auto">
+                  <h6 class="cl-bl eng-head text-center">Filter Alert</h6>
+                </div>
+                </div>
+                <br>
+                <div class="fl">
+                  <h6 class="cl-bl mt-auto mb-auto e-m">ID</h6>
+                  <div class="common-input2">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                  </div>
+                  <h6 class="cl-bl mt-auto mb-auto e2-m">Alert e-mail Address</h6>
+                  <div class="common-input2">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                  </div>
+                </div>
+                <br>
+                <div class="fl">
+                  <h6 class="cl-bl mt-auto mb-auto">Description</h6>
+                  <h6 class="cl-bl mt-auto mb-auto ml-auto">Alert</h6>
+                  <label class="switch-f fil2">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <br>
+                <textarea class="form-control" placeholder="" id="floatingTextarea2" style="height: 100px"></textarea>
+              </div>
+            </div>
+            <br>
+            <div class="card shadow ml-5 w-500 margin-1">
+              <!-- Card Header - Dropdown -->
+              
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="engine-head2 ml-3">
+                  <h6 class="cl-bl eng-head text-center">Filters<span class="ml-3">000 of 005</span></h6>
+                </div>
+                <br>
+                <h6 class="cl-bl" style="float: left;">Inbound Relationship</h6>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                <br>
+                <h6 class="cl-bl" style="float: left;">Outbound Relationship</h6>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                <br>
+                <div class="fl">
+                  <div class="ml-auto">
+                  <button type="button" class="btn btn-primary mr-2" style="">COPY</button>
+                  <button type="button" class="btn btn-primary mr-2" style="">ADD</button>
+                  <button type="button" class="btn btn-primary" style="">DELETE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="card shadow ml-5 w-500 margin-1">
+              <!-- Card Header - Dropdown -->
+              
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="engine-head2 ml-3">
+                  <h6 class="cl-bl eng-head text-center">Condition</h6>
+                </div>
+                <br>
+                <div class="fl">
+                  <h6 class="cl-bl  mt-auto mb-auto">Status</h6>
+                  <label class="switch-f fil2">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <br>
+                <h6 class="cl-bl ">Description</h6>
+                <textarea class="form-control" placeholder="" id="floatingTextarea2" style="height: 100px"></textarea>
+                <br>
+                <div class="fl">
+                <h6 class="cl-bl ">Type</h6>
+                <h6 class="cl-bl  fl-mi">Operation</h6>
+              </div>
+
+              <div class="fl">
+                <!--type dropdown-->
+                <div class="dropdown">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+                <!--operation dropdown-->
+                <div class="dropdown fl-mi2">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+              </div>
+              <br>
+              <!--element and test value-->
+              <div class="fl">
+                <h6 class="cl-bl ">Element</h6>
+                <h6 class="cl-bl fl-mii">Test value</h6>
+              </div>
+
+              <div class="fl">
+                <!--element dropdown-->
+                <div class="dropdown">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+                <!--test value dropdown-->
+                <div class="dropdown fl-mi2">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
+          <!--interface-->
+          <div class="tabPanel">
+             <!--main menu-->
+             <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">INTERFACE MAINTENANCE FORM</h1>
+            
+            </div>
+            <!--menu/navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link active tab" aria-current="page" href="#" onclick="showPanel(10,'')">General</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(11,'')">Inbound</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(12,'')">Outbound</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(13,'')">Misc</a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div class="row pt-3">
+              <div class="col-xl-12 col-lg-12">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 ml-5 text-gray-800">General</h1>
+            </div>
+            <div class="card shadow ml-5 w-500 margin-1">
+              <!-- Card Header - Dropdown -->
+              
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="engine-head2 ml-2">
+                  <h6 class="cl-bl eng-head text-center">Interface</h6>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6">
+                    <h6 class="cl-bl eng-head mt-auto mb-auto">ID</h6>
+                  <div class="common-input">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                  </div>
+                  <br>
+                  <h6 class="cl-bl eng-head mt-auto mb-auto">Queue</h6>
+                  <div class="common-input">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                  </div>
+                  <br>
+                  <h6 class="cl-bl eng-head mt-auto mb-auto">Name</h6>
+                  <div class="common-input">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                  </div>
+                  <br>
+                  <div class="fl">
+                  <h6 class="cl-bl int mt-auto mb-auto">Group ID</h6>
+                  <div class="common-input">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                  </div>
+                  <h6 class="cl-bl int2 mt-auto mb-auto">Sub Group ID</h6>
+                  <div class="common-input">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                  </div>
+                
+                  </div>
+                  <br>
+                  <h6 class="cl-bl eng-head mt-auto mb-auto">Site Name</h6>
+                  <div class="common-input">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                  </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 alert-m">
+                    <div class="int-s">
+                    <div class="fl">
+                      <h6 class="cl-bl eng-head mt-auto mb-auto">Alert</h6>
+                      <label class="switch-f fil2">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto">Site Code</h6>
+                    <div class="common-input1">
+                      <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto">HL7 Version</h6>
+                    <div class="common-input1">
+                      <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto">File Filter</h6>
+                    <div class="common-input1">
+                      <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto">Priority</h6>
+                    <div class="common-input1">
+                      <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          </div>
+          <!--inbound-->
+          <div class="tabPanel">
+             <!--main menu-->
+             <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">INTERFACE MAINTENANCE FORM</h1>
+            
+            </div>
+            <!--menu/navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link tab" aria-current="page" href="#" onclick="showPanel(10,'')">General</a>
+                    <a class="nav-link active tab" href="#" onclick="showPanel(11,'')">Inbound</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(12,'')">Outbound</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(13,'')">Misc</a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div class="row pt-3">
+              <div class="col-xl-12 col-lg-12">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 ml-5 text-gray-800">Inbound</h1>
+            </div>
+            <div class="card shadow ml-5 w-500 margin-1">
+              <!-- Card Header - Dropdown -->
+              
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="engine-head2 ml-2">
+                  <h6 class="cl-bl eng-head text-center">Inbound</h6>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6">
+                    <h6 class="cl-bl ml-3">Type</h6>
+                    <div class="common-input">
+                      <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle tg2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <br>
+                    <h6 class="cl-bl ml-3">Mailbox</h6>
+                    <div class="common-input">
+                      <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle tg2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto ml-2">Inbox</h6>
+                    <div class="tg2 ml-2">
+                      <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto ml-2">Timeout</h6>
+                    <div class="tg2 ml-2">
+                      <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    <br>
+                    <div class="card shadow tg2 ml-2 w-400 margin-1">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Inbound Listing Server</h6>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <h6 class="cl-bl eng-head mt-auto mb-auto">Port</h6>
+                        <div class="common-input2">
+                          <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                        </div>  
+                        <br>
+                        <h6 class="cl-bl eng-head mt-auto mb-auto">Max Bound</h6>
+                        <div class="common-input2">
+                          <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6">
+                    <div class="card shadow ml-5 tg2 w-300 margin-1">
+                      <!-- Card Header - Dropdown -->
+                      
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <div class="fl">
+                          <h6 class="cl-bl mt-auto mb-auto">Status</h6>
+                          <label class="switch-f fil2">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                        <br>
+                        <div class="fl">
+                          <h6 class="cl-bl mt-auto mb-auto">IsLive</h6>
+                          <label class="switch-f fil2">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="card shadow ml-2 w-420 margin-1">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Queue Thereshold Alerts</h6>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <h6 class="cl-bl ml-3">Msg Queue</h6>
+                        <div class="fl auto-update">
+                          <div class="common-input">
+                          <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                          </div>
+                          <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                              
+                            </a>
+                          
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </div>
+                          </div>
+                          <br>
+                          <h6 class="cl-bl ml-3">Error Queue</h6>
+                          <div class="fl auto-update">
+                            <div class="common-input">
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                            </div>
+                            <div class="dropdown">
+                              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                              </a>
+                            
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                            </div>
+                            </div>
+                          <br>
+                          <h6 class="cl-bl ml-3">Filter Queue</h6>
+                          <div class="fl auto-update">
+                            <div class="common-input">
+                            <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                            </div>
+                            <div class="dropdown">
+                              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                              </a>
+                            
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                            </div>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+                <br>
+                <div class="card shadow ml-5 w-400 margin-1">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header py-3 fl">
+                    <h6 class="cl-bl">GUID</h6>
+                    <h6 class="cl-bl ml-2">3F7VDBHSBN3R3EE-CXSZD2324SX-ASXS-3</h6>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                    <h6 class="cl-bl">Decryption Key</h6>
+                    <textarea class="form-control" placeholder="" id="floatingTextarea2" style="height: 100px"></textarea>
+                  </div>
+                </div>
+                <br>
+                <div class="card shadow ml-5 w-500 margin-1">
+                  <!-- Card Header - Dropdown -->
+                  
+                  <!-- Card Body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-xl-6 col-lg-6">
+                    <div class="engine-head2 ml-2">
+                      <h6 class="cl-bl eng-head text-center">Inbound Alert</h6>
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto">Alert e-mail</h6>
+                    <div class="common-input2">
+                      <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                      <div class="ml-3">
+                      <div class="fl">
+                        <h6 class="cl-bl mt-auto mb-auto w-100p">Alert</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      <br>
+                      <div class="fl">
+                        <h6 class="cl-bl mt-auto mb-auto w-100p">Heartbeat</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      <br>
+                      <div class="fl">
+                        <h6 class="cl-bl mt-auto mb-auto w-100p">Log</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      </div>
+                      <br>
+                      <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle tg2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          
+                        </a>
+                      
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          </div>
+         <div class="tabPanel">
+             <!--main menu-->
+             <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">INTERFACE MAINTENANCE FORM</h1>
+            
+            </div>
+            <!--menu/navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link tab" aria-current="page" href="#" onclick="showPanel(10,'')">General</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(11,'')">Inbound</a>
+                    <a class="nav-link active tab" href="#" onclick="showPanel(12,'')">Outbound</a>
+                    <a class="nav-link tab" href="#" onclick="showPanel(13,'')">Misc</a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div class="row pt-3">
+              <div class="col-xl-12 col-lg-12">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 ml-5 text-gray-800">Outbound</h1>
+            </div>
+            <div class="card shadow ml-5 w-400 margin-1">
+              <!-- Card Header - Dropdown -->
+              
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="engine-head2 ml-2">
+                  <h6 class="cl-bl eng-head text-center">Outbound<span class="ml-3">000 of 001</span></h6>
+                </div>
+                <br>
+                <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                <br>
+                <div class="fl">
+                  <div class="ml-auto">
+                  <button type="button" class="btn btn-primary mr-2">COPY</button>
+                  <button type="button" class="btn btn-primary mr-2">ADD</button>
+                  <button type="button" class="btn btn-primary">DELETE</button>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <br>
+              <div class="card shadow ml-5 w-400 margin-1">
+                <!-- Card Header - Dropdown -->
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="engine-head2 ml-3">
+                    <h6 class="cl-bl eng-head text-center">Transformation</h6>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                      <h6 class="cl-bl mt-auto mb-auto ml-2">DLL</h6>
+                      <div class="common-input2 ml-2">
+                        <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                      </div>
+                      <br>
+                      <h6 class="cl-bl mt-auto mb-auto ml-2">DLL Config</h6>
+                      <div class="common-input2 ml-2">
+                        <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                      </div>
+                      <br>
+                      <h6 class="cl-bl mt-auto mb-auto ml-2">Class</h6>
+                      <div class="common-input2 ml-2">
+                        <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                      </div>
+                      <br>
+                      <h6 class="cl-bl mt-auto mb-auto ml-2">Method</h6>
+                      <div class="common-input2 ml-2">
+                        <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                      <div class="fl ml-2">
+                        <h6 class="cl-bl mt-auto mb-auto w-100p">Status</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                  </div>
+            </div>
+            <br>
+             <div class="card shadow ml-5 w-500 margin-1">
+              <!-- Card Header - Dropdown -->
+              
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="engine-head2 ml-2">
+                  <h6 class="cl-bl eng-head text-center">Inbound</h6>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6">
+                    <h6 class="cl-bl ml-3">Type</h6>
+                    <div class="common-input">
+                      <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle tg2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <br>
+                    <h6 class="cl-bl ml-3">Mailbox</h6>
+                    <div class="common-input">
+                      <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle tg2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto ml-2">Outbox</h6>
+                    <div class="tg2 ml-2">
+                      <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto ml-2">Timeout</h6>
+                    <div class="tg2 ml-2">
+                      <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    <br>
+                    <div class="card shadow tg2 ml-2 w-400 margin-1">
+                     
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <h6 class="cl-bl eng-head mt-auto mb-auto">IP Address</h6>
+                        <div class="common-input2">
+                          <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                        </div>  
+                        <br>
+                        <h6 class="cl-bl eng-head mt-auto mb-auto">Port</h6>
+                        <div class="common-input2">
+                          <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6">
+                    <div class="card shadow ml-5 tg2 w-300 margin-1">
+                      <!-- Card Header - Dropdown -->
+                      
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <div class="fl">
+                          <h6 class="cl-bl mt-auto mb-auto">Status</h6>
+                          <label class="switch-f fil2">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                        <br>
+                        <div class="fl">
+                          <h6 class="cl-bl mt-auto mb-auto">IsLive</h6>
+                          <label class="switch-f fil2">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="card shadow ml-2 w-420 margin-1">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Queue Thereshold Alerts</h6>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <h6 class="cl-bl ml-3">Msg Queue</h6>
+                        <div class="fl auto-update">
+                          <div class="common-input">
+                          <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                          </div>
+                          <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                              
+                            </a>
+                          
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </div>
+                          </div>
+                          <br>
+                          <h6 class="cl-bl ml-3">Error Queue</h6>
+                          <div class="fl auto-update">
+                            <div class="common-input">
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="">
+                            </div>
+                            <div class="dropdown">
+                              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                              </a>
+                            
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                            </div>
+                            </div>
+                          <br>
+                          <h6 class="cl-bl ml-3">Filter Queue</h6>
+                          <div class="fl auto-update">
+                            <div class="common-input">
+                            <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                            </div>
+                            <div class="dropdown">
+                              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                              </a>
+                            
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                            </div>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+                <br>
+                <div class="card shadow ml-5 w-400 margin-1">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header py-3 fl">
+                    <h6 class="cl-bl">GUID</h6>
+                    <h6 class="cl-bl ml-2">3F7VDBHSBN3R3EE-CXSZD2324SX-ASXS-3</h6>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                    <h6 class="cl-bl">Encryption Key</h6>
+                    <textarea class="form-control" placeholder="" id="floatingTextarea2" style="height: 100px"></textarea>
+                  </div>
+                </div>
+                <br>
+                <div class="card shadow ml-5 w-400 margin-1">
+                  <!-- Card Header - Dropdown -->
+                  
+                  <!-- Card Body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-xl-6 col-lg-6">
+                    <div class="engine-head2 ml-2">
+                      <h6 class="cl-bl eng-head text-center">Inbound Alert</h6>
+                    </div>
+                    <br>
+                    <h6 class="cl-bl eng-head mt-auto mb-auto">Alert e-mail</h6>
+                    <div class="common-input2">
+                      <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                      <div class="ml-3">
+                      <div class="fl">
+                        <h6 class="cl-bl mt-auto mb-auto w-100p">Alert</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      <br>
+                      <div class="fl">
+                        <h6 class="cl-bl mt-auto mb-auto w-100p">Heartbeat</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      <br>
+                      <div class="fl">
+                        <h6 class="cl-bl mt-auto mb-auto w-100p">Log</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      </div>
+                      <br>
+                      <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle tg2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          
+                        </a>
+                      
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+              <br>
+              <div class="card shadow ml-5 w-300 margin-1">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="cl-bl"></h6>
+                  <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      
+                    </a>
+                  
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="fl">
+                  <h6 class="cl-bl ml-3">Queue Suspension</h6>
+                  <h6 class="cl-bl ml-3">OFF</h6>
+                  <h6 class="cl-bl ml-3">None</h6>
+                </div>
+                </div>
+              </div>
+            </div>
+         </div>
+         </div>
+         <!--misc-->
+         <div class="tabPanel">
+          <!--main menu-->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+           <h1 class="h3 mb-0 text-gray-800">INTERFACE MAINTENANCE FORM</h1>
+         </div>
+         <!--menu/navbar-->
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <div class="container-fluid">
+            
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+               <div class="navbar-nav">
+                 <a class="nav-link tab" aria-current="page" href="#" onclick="showPanel(10,'')">General</a>
+                 <a class="nav-link tab" href="#" onclick="showPanel(11,'')">Inbound</a>
+                 <a class="nav-link tab" href="#" onclick="showPanel(12,'')">Outbound</a>
+                 <a class="nav-link active tab" href="#" onclick="showPanel(13,'')">Misc</a>
+               </div>
+             </div>
+           </div>
+         </nav>
+         <div class="row pt-3">
+           <div class="col-xl-12 col-lg-12">
+         <div class="d-sm-flex align-items-center justify-content-between mb-4">
+           <h1 class="h3 ml-5 text-gray-800">Misc</h1>
+         </div>
+         <div class="row ml-3 m5">
+          <div class="col-xl-4 col-lg-4 m5">
+          <div class="card shadow ml-2 cr-ft margin-1">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">Database Logging</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+              <label class="switch-f fil2">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+              <br>
+              <br>
+              <h6 class="cl-bl eng-head mt-auto mb-auto">Refresh Days</h6>
+                    <div class="common-input">
+                      <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+              <br>
+              <br>
+              <div class="fl">
+                <h6 class="cl-bl mt-auto mb-auto w-180p">Error Message Queue</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+              </div>
+              <br>
+              <div class="fl">
+                <h6 class="cl-bl mt-auto mb-auto w-180p">Resend Message Queue</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+              </div>
+              <br>
+              <div class="fl">
+                <h6 class="cl-bl mt-auto mb-auto w-180p">Filtered Message Queue</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 m5">
+            <div class="card shadow ml-2 cr-ft margin-1">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">File Archieving</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <label class="switch-f fil2">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                <br>
+                <br>
+                <div class="fl">
+                  <h6 class="cl-bl mt-auto mb-auto w-140p">Zip</h6>
+                  <label class="switch-f fil2">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <br>
+                <div class="fl">
+                  <h6 class="cl-bl mt-auto mb-auto w-140p">Encryption</h6>
+                  <label class="switch-f fil2">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 m5">
+              <div class="card shadow ml-2 cr-ft margin-1">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Interface Alert</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <label class="switch-f fil2">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                  <br>
+                  <h6 class="cl-bl eng-head mt-auto mb-auto">Refresh Days</h6>
+                    <div class="common-input">
+                      <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                    </div>
+              <br>
+              <div class="fl">
+                <h6 class="cl-bl mt-auto mb-auto w-180p">Error Message Queue</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+              </div>
+              <br>
+              <div class="fl">
+                <h6 class="cl-bl mt-auto mb-auto w-180p">Resend Message Queue</h6>
+                        <label class="switch-f fil2">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+              </div>
+                </div>
+              </div>
+              </div>
+         </div>
+         <br>
+         <div class="row m5">
+          <div class="col-xl-4 col-lg-4 m5">
+
+         <div class="card shadow ml-2 cr-ft margin-1">
+
+          <!-- Card Body -->
+          <div class="card-body">
+            <div class="engine-head2 ml-2">
+              <h6 class="cl-bl eng-head text-center">Service Status</h6>
+            </div>
+            <br>
+            <div class="fl ml-2">
+              <h6 class="cl-bl mt-auto mb-auto w-140p">Tbios Service</h6>
+              <h6 class="cl-bl mt-auto mb-auto w-140p">ON</h6>
+            </div>
+            <br>
+            <div class="fl ml-2">
+              <h6 class="cl-bl mt-auto mb-auto w-140p">Socket Service</h6>
+              <h6 class="cl-bl mt-auto mb-auto w-140p">OFF</h6>
+            </div>
+            <br>
+            <div class="fl ml-2">
+              <h6 class="cl-bl mt-auto mb-auto w-140p">FTP Service</h6>
+              <h6 class="cl-bl mt-auto mb-auto w-140p">ON</h6>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-xl-8 col-lg-8 m5">
+          <div class="card shadow ml-2 cr-ft margin-1">
+
+            <!-- Card Body -->
+            <div class="card-body">
+              <div class="engine-head3 ml-2">
+                <h6 class="cl-bl eng-head text-center">HL7 Enhanced Acknowledgement</h6>
+              </div>
+              <br>
+              <div class="form-check ml-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label cl-bl" for="flexCheckDefault">
+                  Acknowledgement
+                </label>
+              </div>
+              <br>
+              <div class="form-check ml-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label cl-bl" for="flexCheckDefault">
+                  Accepted Acknowledgement Type
+                </label>
+              </div>
+              <br>
+              <div class="form-check ml-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label cl-bl" for="flexCheckDefault">
+                  Application Acknowledgement Type
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <br>
+      </div>
+    </div>
+    </div>
+    <div id="monitor" class="tabcontent">
+          <!--main menu-->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">INTERFACE MONITORING FORM</h1>
+          </div>
+          <!-- <div class="fl">
+            <div class="dropdown">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+            <h6 class="cl-bl mt-auto mb-auto ml-500">ID</h6>
+            <div class="dropdown ml-auto">
+              <a class="btn btn-secondary dropdown-toggle tg2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </div> -->
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-2 col-sm-2 position-relative">
+              <select class="form-select" id="validationTooltip04" required>
+                <option selected disabled value="">Service Status</option>
+                <option>Tbios Service</option>
+                <option>Tbios Service</option>
+                <option>Tbios Service</option>
+              </select>
+            </div>
+            <div class="col-md-4 col-sm-4 position-relative">
+             
+            </div>
+            <div class="col-md-6 col-sm-6 position-relative ml-auto imf">
+              <label for="validationTooltip04" class="form-label cl-bl imf-id">ID</label>
+              <select class="form-select tg2" id="validationTooltip04" required>
+                <option selected disabled value="">Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+          </form>
+          <br>
+          <div class="card shadow ml-2 w-500 margin-1">
+
+            <!-- Card Body -->
+            <div class="card-body">
+              <div class="engine-head2 ml-2">
+                <h6 class="cl-bl eng-head text-center">Interface</h6>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                  <div class="card shadow ml-2 w-300 margin-1">
+
+                    <!-- Card Body -->
+                    <div class="card-body">
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Interface id:</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Name :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Group id :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Sub-Group id :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                  <div class="card shadow ml-2 w-300 margin-1">
+
+                    <!-- Card Body -->
+                    <div class="card-body">
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Priority :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Site Name :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Site Code :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">HL7 Version :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">File Filter :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+              <h6 class="cl-bl ml-3">Queue</h6>
+            </div>
+          </div>
+              <br>
+              <div class="card shadow ml-2 w-500 margin-1">
+
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="engine-head2 ml-2">
+                    <h6 class="cl-bl eng-head text-center">Transformation</h6>
+                  </div>
+                  <br>
+                  <div class="ml-2">
+                  <div class="fl">
+                    <h6 class="cl-bl eng-head">Status :</h6>
+                    <h6 class="cl-bl"></h6>
+                  </div>
+                  <div class="fl">
+                    <h6 class="cl-bl eng-head">DLL Name :</h6>
+                    <h6 class="cl-bl"></h6>
+                  </div>
+                  <div class="fl">
+                    <h6 class="cl-bl eng-head">DLL Config :</h6>
+                    <h6 class="cl-bl"></h6>
+                  </div>
+                  <div class="fl">
+                    <h6 class="cl-bl eng-head">Class :</h6>
+                    <h6 class="cl-bl"></h6>
+                  </div>
+                  <div class="fl">
+                    <h6 class="cl-bl eng-head">Method :</h6>
+                    <h6 class="cl-bl"></h6>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            <br>
+            <div class="card shadow ml-2 w-500 margin-1">
+
+              <!-- Card Body -->
+              <div class="card-body">
+                
+                <br>
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6">
+                    <div class="engine-head2 ml-3">
+                      <h6 class="cl-bl eng-head text-center">Inbound</h6>
+                    </div>
+                    <br>
+                    <div class="ml-2">
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Status :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Type :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Mailbox :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">IP Address :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Port :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Time Out :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Username :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Folder Path :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      <div class="fl">
+                        <h6 class="cl-bl eng-head">Interval Min :</h6>
+                        <h6 class="cl-bl"></h6>
+                      </div>
+                      </div>
+                  </div>
+                    <div class="col-xl-6 col-lg-6">
+                      <div class="engine-head2 ml-3">
+                        <h6 class="cl-bl eng-head text-center">Outbound</h6>
+                      </div>
+                      <br>
+                      <div class="ml-2">
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">Status :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">Type :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">Mailbox :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">IP Address :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">Port :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">Time Out :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">Username :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">Folder Path :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">Interval Min :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        <div class="fl">
+                          <h6 class="cl-bl eng-head">Queue Suspension :</h6>
+                          <h6 class="cl-bl"></h6>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+                <br>
+                <div class="card shadow ml-2 w-500 margin-1">
+
+                  <!-- Card Body -->
+                  <div class="card-body">
+                    <div class="engine-head2 ml-3">
+                      <h6 class="cl-bl eng-head text-center">Interface Alert</h6>
+                    </div>
+                    <br>
+                    <h6 class="cl-bl ml-3">Alert Id :</h6>
+                    <br>
+                    <div class="row">
+                      <div class="col-xl-4 col-lg-4">
+                        <div class="card shadow ml-2 w-300 margin-1">
+                          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Alerts</h6>
+                          </div>
+                          <!-- Card Body -->
+                          <div class="card-body">
+                            <h6 class="cl-bl">Status</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-lg-4">
+                        <div class="card shadow ml-2 w-300 margin-1">
+                          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Heartbeat</h6>
+                          </div>
+                          <!-- Card Body -->
+                          <div class="card-body">
+                            <h6 class="cl-bl">Status</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-lg-4">
+                        <div class="card shadow ml-2 w-300 margin-1">
+                          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Log</h6>
+                          </div>
+                          <!-- Card Body -->
+                          <div class="card-body">
+                            <h6 class="cl-bl">Status</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                        <br>
+                        <div class="card shadow ml-2 w-500 margin-1">
+
+                          <!-- Card Body -->
+                          <div class="card-body">
+                            <div class="engine-head2 ml-3">
+                              <h6 class="cl-bl eng-head text-center">File Archieving</h6>
+                            </div>
+                            <br>
+                            <h6 class="cl-bl ml-3">Status :</h6>
+                            <br>
+                            <div class="row">
+                              <div class="col-xl-4 col-lg-4">
+                                <div class="card shadow ml-2 w-300 margin-1">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Encryption</h6>
+                                  </div>
+                                  <!-- Card Body -->
+                                  <div class="card-body">
+                                    <h6 class="cl-bl">Status</h6>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4">
+                                <div class="card shadow ml-2 w-300 margin-1">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Zip</h6>
+                                  </div>
+                                  <!-- Card Body -->
+                                  <div class="card-body">
+                                    <h6 class="cl-bl">Status</h6>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="card shadow ml-2 w-500 margin-1">
+
+                          <!-- Card Body -->
+                          <div class="card-body">
+                            <div class="engine-head2 ml-3">
+                              <h6 class="cl-bl eng-head text-center">Database Login</h6>
+                            </div>
+                            <br>
+                            <div class="fl">
+                              <h6 class="cl-bl ml-3">Status :</h6>
+                              <h6 class="cl-bl ml-auto mr-3">Referesh Days :</h6>
+                            </div>
+                            
+                            <br>
+                            <div class="row">
+                              <div class="col-xl-4 col-lg-4">
+                                <div class="card shadow ml-2 w-300 margin-1">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Error Message Queue</h6>
+                                  </div>
+                                  <!-- Card Body -->
+                                  <div class="card-body">
+                                    <h6 class="cl-bl">Status</h6>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4">
+                                <div class="card shadow ml-2 w-300 margin-1">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Resend Message Queue</h6>
+                                  </div>
+                                  <!-- Card Body -->
+                                  <div class="card-body">
+                                    <h6 class="cl-bl">Status</h6>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4">
+                                <div class="card shadow ml-2 w-300 margin-1">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Filtered Message Queue</h6>
+                                  </div>
+                                  <!-- Card Body -->
+                                  <div class="card-body">
+                                    <h6 class="cl-bl">Status</h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+    </div>
+   
+    <div id="query" class="tabcontent">
+      <!--main menu-->
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">MESSAGE QUERY</h1>
+      </div>
+      <div class="card shadow ml-2 w-500 margin-1">
+        
+        <!-- Card Body -->
+        <div class="card-body">
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4">
+              <label for="validationCustom01" class="form-label">DB</label>
+              <input type="text" class="form-control" id="validationCustom01" value="" required>
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">TBL</label>
+              <input type="text" class="form-control" id="validationCustom02" value="" required>
+            </div>
+            
+            <div class="col-md-4">
+              <br>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Queue Inbound messages
+                </label>
+              </div>
+              
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Queue Outbound messages
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-search"></i></span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <br>
+              <div class="fl">
+              <div class="form-check">
+                <br>
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Search in all messages
+                </label>
+              </div> 
+              <div class="form-check ml-3">
+                <br>
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Search in all header info
+                </label>
+              </div> 
+              </div>     
+            </div>
+            <div class="col-md-3">
+              <br>
+              <div class="input-group">
+              <input type="text" class="form-control" id="validationCustom01" value="Start Date" required>
+              <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-calendar-alt"></i></span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <br>
+              <div class="input-group">
+              <input type="text" class="form-control" id="validationCustom01" value="End Date" required>
+              <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-calendar-alt"></i></span>
+              </div>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+      <br>
+      <div class="card shadow ml-2 w-500 margin-1">
+       
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="engine-head2 ml-3">
+            <h6 class="cl-bl eng-head text-center">Inbound</h6>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card shadow ml-2 w-500 margin-1">
+       
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="engine-head2 ml-3">
+            <h6 class="cl-bl eng-head text-center">Outbound</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="status" class="tabcontent">
+      <!--main menu-->
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">STATUS</h1>
+      </div>
+      <div class="card shadow w-500 margin-1">
+        
+        <!-- Card Body -->
+        <div class="card-body"  style="overflow-x: auto;">
+          <table class="table table-borderless table-hover">
+            <thead>
+              <tr style="color: black;">
+                <th scope="col" class="t-st">ID</th>
+                <th scope="col" class="t-st">ACTIVATION</th>
+                <th scope="col" class="t-st">Inbound</th>
+                <th scope="col" class="t-st">Outbound</th>
+                <th scope="col" class="t-st">Description</th>
+                <th scope="col" class="t-st">Group</th>
+                <th scope="col" class="t-st">Sub-group</th>
+                <th scope="col" class="t-st">Inbound Queue</th>
+                <th scope="col" class="t-st">Inbound Errors</th>
+                <th scope="col" class="t-st">Outbound Queue</th>
+                <th scope="col" class="t-st">Outbound Errors</th>
+                <th scope="col" class="t-st">Inbound</th>
+                <th scope="col" class="t-st">Outbound</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Mr. daniels</th>
+                <td>#1293078</td>
+                <td>11-07-18</td>
+                <td>completed</td>
+              </tr>
+              <tr>
+                <th scope="row">Mr. daniels</th>
+                <td>#1293078</td>
+                <td>11-07-18</td>
+                <td>completed</td>
+              </tr>
+              <tr>
+                <th scope="row">Mr. daniels</th>
+                <td>#1293078</td>
+                <td>11-07-18</td>
+                <td>completed</td>
+              </tr>
+              <tr>
+                <th scope="row">Mr. daniels</th>
+                <td>#1293078</td>
+                <td>11-07-18</td>
+                <td>completed</td>
+              </tr>
+              <tr>
+                <th scope="row">Mr. daniels</th>
+                <td>#1293078</td>
+                <td>11-07-18</td>
+                <td>completed</td>
+              </tr>
+              <tr>
+                <th scope="row">Mr. daniels</th>
+                <td>#1293078</td>
+                <td>11-07-18</td>
+                <td>completed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div id="test" class="tabcontent">
+      <!--main menu-->
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+       <h1 class="h3 mb-0 text-gray-800">Reports</h1>
+     </div>
+     <!--menu/navbar-->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <div class="container-fluid">
+        
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+           <div class="navbar-nav">
+             <a class="nav-link active tablink" aria-current="page" href="#" onclick="openPage('test', this, '')">Top Selling Products</a>
+             <a class="nav-link tablink" href="#" onclick="openPage('input', this, '')">Earnings</a>
+           </div>
+         </div>
+       </div>
+     </nav>
+     <h4>Top Selling products</h4>
+   <div class="row">
+     <div class="col-xs-12 col-sm-12 col-md-12">
+      
+      <div class="card shadow mb-4">
+      <div class="tb-responsive ">
+        <table class="table" style="width: inherit !important;">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="cat">Product name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Amount</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="cat" style="color: black; font-weight: bold;">solar panel <br> <br>
+              </td>
+              <td>solar panel solar panel solar panel solar panel
+                solar panel solar panel solar panel solar panel
+                solar panel solar panel solar panel solar panel
+                solar panelsolar panelsolar panelsolar pane
+                <br>
+              </td>
+              <td class="cat" style="color: black; font-weight: bold;">1 <br> <br> </td>
+                <td class="cat" style="color: black; font-weight: bold;">$20 <br> <br> </td>
+              
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      </div>
+     </div>
+   </div>
+   </div>
+<div id="input" class="tabcontent">
+   <!--main menu-->
+   <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">REPORT - EARNINGS</h1>
+  </div>
+  <!--menu/navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link tablink" aria-current="page" href="#" onclick="openPage('test', this, '')">Top Selling Products</a>
+          <a class="nav-link active tablink" href="#" onclick="openPage('input', this, '')">Earnings</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div style="display: flex;">
+
+      <h6 class="cl-bl mt-auto mb-auto">Add Role</h6>
+      <select class="form-select st-dr" id="validationTooltip04" required>
+        <option selected value="">Sort By</option>
+        <option>Monthly</option>
+        <option>Weekly</option>
+        <option>Yearly</option>
+      </select>
+    </div>
+    <div class="card shadow mb-4 pt-4">
+      <div class="tb-responsive ">
+        <table class="table" style="width: inherit !important;">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="cat">Earnings</th>
+              <th scope="col">Price</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="cat" style="color: black; font-weight: bold;">solar panel <br> <br>
+              </td>
+              <td>solar panel solar panel solar panel solar panel
+                solar panel solar panel solar panel solar panel
+                solar panel solar panel solar panel solar panel
+                solar panelsolar panelsolar panelsolar pane
+                <br>
+              </td>
+              <td class="cat" style="color: black; font-weight: bold;">1 <br> <br> </td>
+                <td class="cat" style="color: black; font-weight: bold;">$20 <br> <br> </td>
+              
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      </div>
+  </div>
+  </div>
+</div>
+<div id="xslt" class="tabcontent">
+   <!--main menu-->
+   <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">XSLT - TESTING TOOLS</h1>
+  </div>
+  <!--menu/navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link tablink" aria-current="page" href="#" onclick="openPage('test', this, '')">Test Setup</a>
+          <a class="nav-link tablink" href="#" onclick="openPage('input', this, '')">Input XML Template</a>
+          <a class="nav-link active tablink" href="#" onclick="openPage('xslt', this, '')">XSLT</a>
+          <a class="nav-link tablink" href="#" onclick="openPage('outxml', this, '')">Output XML Template</a>
+          <a class="nav-link tablink" href="#" onclick="openPage('inxml', this, '')">Input XML</a>
+          <a class="nav-link tablink" href="#" onclick="openPage('transout', this, '')">Transform Output</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="row pt-3">
+    <div class="col-xl-12 col-lg-12">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 ml-5 text-gray-800">XSLT</h1>
+  </div>
+  <div class="card shadow w-500 margin-1">
+    
+    <!-- Card Body -->
+    <div class="card-body">
+    </div>
+  </div>
+  </div>
+  </div>
+</div>
+<div id="outxml" class="tabcontent">
+ <!--main menu-->
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">XSLT - TESTING TOOLS</h1>
+</div>
+<!--menu/navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link tablink" aria-current="page" href="#" onclick="openPage('test', this, '')">Test Setup</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('input', this, '')">Input XML Template</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('xslt', this, '')">XSLT</a>
+        <a class="nav-link active tablink" href="#" onclick="openPage('outxml', this, '')">Output XML Template</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('inxml', this, '')">Input XML</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('transout', this, '')">Transform Output</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="row pt-3">
+  <div class="col-xl-12 col-lg-12">
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 ml-5 text-gray-800">Output XML Template</h1>
+</div>
+<div class="card shadow w-500 margin-1">
+  
+  <!-- Card Body -->
+  <div class="card-body">
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div id="inxml" class="tabcontent">
+ <!--main menu-->
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">XSLT - TESTING TOOLS</h1>
+</div>
+<!--menu/navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link tablink" aria-current="page" href="#" onclick="openPage('test', this, '')">Test Setup</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('input', this, '')">Input XML Template</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('xslt', this, '')">XSLT</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('outxml', this, '')">Output XML Template</a>
+        <a class="nav-link active tablink" href="#" onclick="openPage('inxml', this, '')">Input XML</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('transout', this, '')">Transform Output</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="row pt-3">
+  <div class="col-xl-12 col-lg-12">
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 ml-5 text-gray-800">Input XML</h1>
+</div>
+<div class="card shadow w-500 margin-1">
+  
+  <!-- Card Body -->
+  <div class="card-body">
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div id="transout" class="tabcontent">
+ <!--main menu-->
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">XSLT - TESTING TOOLS</h1>
+</div>
+<!--menu/navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link tablink" aria-current="page" href="#" onclick="openPage('test', this, '')">Test Setup</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('input', this, '')">Input XML Template</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('xslt', this, '')">XSLT</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('outxml', this, '')">Output XML Template</a>
+        <a class="nav-link tablink" href="#" onclick="openPage('inxml', this, '')">Input XML</a>
+        <a class="nav-link active tablink" href="#" onclick="openPage('transout', this, '')">Transform Output</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="row pt-3">
+  <div class="col-xl-12 col-lg-12">
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 ml-5 text-gray-800">Transform Output</h1>
+</div>
+<div class="card shadow w-500 margin-1">
+  
+  <!-- Card Body -->
+  <div class="card-body">
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="setting" class="tabcontent">
+  <div class="row pt-3">
+    <div class="col-xl-12 col-lg-12">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 ml-5 text-gray-800">Settings</h1>
+  </div>
+    <div class="row">
+      <div class="col-xl-6 col-lg-6">
+  <div class="card shadow w-300 margin-1">
+    
+    <!-- Card Body -->
+    <div class="card-body">
+      <div class="fl ml-3 margin-1">
+        <h6 class="cl-bl mt-auto mb-auto">Add Role</h6>
+        <select class="form-select st-dr" id="validationTooltip04" required>
+          <option selected value="">Admin</option>
+          <option>Manager</option>
+          <option>Incharge</option>
+          <option>Crew</option>
+        </select>
+      </div>
+      
+    </div>
+  </div>
+      </div>
+      <div class="col-xl-6 col-lg-6">
+  <div class="card shadow w-300 margin-1">
+    
+    <!-- Card Body -->
+    <div class="card-body">
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Change Password</h6>
+      </div>
+      <br>
+      <h6 class="cl-bl mt-auto mb-auto">Old Password</h6>
+      <input type="password" class="form-control" id="inputAddress" placeholder="">
+      <br>
+      <h6 class="cl-bl mt-auto mb-auto">New Password</h6>
+      <input type="password" class="form-control" id="inputAddress" placeholder="">
+      <br>
+      <h6 class="cl-bl mt-auto mb-auto">Confirm Password</h6>
+      <input type="password" class="form-control" id="inputAddress" placeholder="">
+      <br>
+      <button type="button" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
+
+      <!-- HELP -->
+      <div id="help" class="tabcontent">
+        <div class="container">
+          <div class="row" id="mar">
+            <div class="col-xs-12 col-sm-12 col-md-6 pb-4" style="background-color: white; box-shadow:0 0.15rem 1.75rem 0 rgb(58 59 69 / 15%) !important">
+
+<img src="./img/desk work final2 (1).png" class="helpimg pt-4 pl-4" alt="">
+<p class="ffont">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, reprehenderit! Aut magnam impedit ipsa nemo id repellendus non quod? Natus ipsum quasi quia? Doloremque cum libero repudiandae aliquid repellat magni?</p>
+
+<div class="social pl-4">
+  <i class="fas fa-envelope-open" style="color: #f04035;"><span style="color: black; margin-left: 10px;">info@deskworksol.com</span></i>
+  <br>
+  <i class="fas fa-link" style="color: #f04035;"><span style="color: black; margin-left: 10px;">deskworksol.com</span></i>
+
+</div>
+
+</div> 
+            <div class="col-xs-12 col-sm-12 col-md-6 " style="background-color: white;  box-shadow:0 0.15rem 1.75rem 0 rgb(58 59 69 / 15%) !important"">
+              <label for="exampleInputEmail1" class="form-label pt-4">Email address</label>
+              <input type="email" class="form-control" value="REPSETGO" disabled="true" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <br>
+              <div class="form-floating">
+              <label for="exampleInputEmail1" class="form-label">Query</label>
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <br>
+                <button id="newaaz" class="btn btn-primary"  type="button">Send</button>        
+             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--HELP  -->
+          <!-- Content Row -->
+          <!-- <div class="row">
+
+          
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+           
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+       
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                        </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+       
+
+          <div class="row">
+
+          
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+               
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="myAreaChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+           
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+            
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
+                  </div>
+                  <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> Direct
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
+          <div class="row">
+
+         
+            <div class="col-lg-6 mb-4">
+
+            
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                </div>
+                <div class="card-body">
+                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+
+             
+              <div class="row">
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-primary text-white shadow">
+                    <div class="card-body">
+                      Primary
+                      <div class="text-white-50 small">#4e73df</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-success text-white shadow">
+                    <div class="card-body">
+                      Success
+                      <div class="text-white-50 small">#1cc88a</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-info text-white shadow">
+                    <div class="card-body">
+                      Info
+                      <div class="text-white-50 small">#36b9cc</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-warning text-white shadow">
+                    <div class="card-body">
+                      Warning
+                      <div class="text-white-50 small">#f6c23e</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-danger text-white shadow">
+                    <div class="card-body">
+                      Danger
+                      <div class="text-white-50 small">#e74a3b</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-secondary text-white shadow">
+                    <div class="card-body">
+                      Secondary
+                      <div class="text-white-50 small">#858796</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-6 mb-4">
+
+            
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                </div>
+                <div class="card-body">
+                  <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
+                  </div>
+                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
+                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+                </div>
+              </div>
+
+            
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                </div>
+                <div class="card-body">
+                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
+                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+                </div>
+              </div>
+
+            </div>
+          </div> -->
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; TiiE 2021</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+      </div>
+
+    
+    <!-- End of Content Wrapper -->
+ 
+  </div>
+
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="logoutModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Shipping Details</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" placeholder="Title"> <br>
+              <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Product Description"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Upload Image</button>
+          <a class="btn btn-primary" href="login.html">Save</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="./js/tabs.js"></script>
+  <script src="./js/demo/btn.js"></script>
+  <script src="./js/myScript.js"></script>
+  <script src="./js/gallery.js"></script>
+  <script>
+    function on(){
+      if(document.getElementById("On").style.display="none"){
+        document.getElementById("On").style.display="block"
+        document.getElementById("Off").style.display="none"
+      }
+      else{
+      document.getElementById("Off").style.display="none"
+      }
+  }
+  </script>
+
+</body>
+
+</html>
